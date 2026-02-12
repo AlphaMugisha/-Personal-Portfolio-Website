@@ -1,64 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe | Web Developer</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animation for the pulse effect */
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(30, 55, 153, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(30, 55, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(30, 55, 153, 0); }
+        }
+        .pulse-mic {
+            animation: pulse-ring 2s infinite;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-    <header>
-        <div class="logo">JD.</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#voice-intro">Story</a>
-            <a href="#contact" class="nav-cta">Contact</a>
+    <header class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-white tracking-tighter">JD.</div>
+            <div class="hidden md:flex space-x-8 items-center text-white font-medium">
+                <a href="#home" class="hover:text-orange-400 transition">Home</a>
+                <a href="#about" class="hover:text-orange-400 transition">About</a>
+                <a href="#skills" class="hover:text-orange-400 transition">Skills</a>
+                <a href="#voice-intro" class="hover:text-orange-400 transition">Story</a>
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-full transition shadow-lg shadow-orange-500/30">Contact</a>
+            </div>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <video autoplay muted loop id="hero-video">
+    <section id="home" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover">
             <source src="media/vid.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
+        
+        <div class="absolute z-20 w-full h-full bg-black/50"></div>
+
+        <div class="relative z-30 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-2xl">John Doe</h1>
+            <h3 class="text-xl md:text-2xl text-orange-400 font-bold mb-6 tracking-wide uppercase">Freelance Web Developer</h3>
+            <p class="text-white text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90">Crafting high-performance, responsive websites for the modern web.</p>
+            <a href="#voice-intro" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1 shadow-xl">
+                Hear My Story
+            </a>
+        </div>
     </section>
 
-    <main class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        <section id="about" class="text-center mb-32">
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-6">About Me</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
                 I am a freelance web developer specializing in HTML, CSS, JavaScript,
                 and modern responsive websites. I turn complex problems into elegant designs.
             </p>
         </section>
 
-        <section id="skills" class="section">
-            <h2>My Skills</h2>
-            <div class="skill-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">React</span>
-                <span class="tag">PHP & MySQL</span>
+        <section id="skills" class="text-center mb-32">
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">My Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-blue-900 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-orange-500 transition cursor-default">HTML5</span>
+                <span class="bg-blue-900 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-orange-500 transition cursor-default">CSS3</span>
+                <span class="bg-blue-900 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-orange-500 transition cursor-default">JavaScript</span>
+                <span class="bg-blue-900 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-orange-500 transition cursor-default">React</span>
+                <span class="bg-blue-900 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-orange-500 transition cursor-default">PHP & MySQL</span>
             </div>
         </section>
 
-        <section id="voice-intro" class="section">
-            <div class="audio-container">
-                <div class="audio-info">
-                    <div class="pulse-icon">
+        <section id="voice-intro" class="mb-32">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100 transition hover:shadow-orange-500/10 flex flex-col items-center gap-8">
+                <div class="flex items-center gap-6 text-left w-full max-w-lg">
+                    <div class="pulse-mic bg-blue-900 p-5 rounded-full flex items-center justify-center shrink-0">
                         <svg viewBox="0 0 24 24" width="28" height="28" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
                     </div>
                     <div>
-                        <h3>Hear My Story</h3>
-                        <p>Click play to hear about my journey and workflow.</p>
+                        <h3 class="text-2xl font-bold text-slate-900">Hear My Story</h3>
+                        <p class="text-slate-500">Click play to hear about my journey and workflow.</p>
                     </div>
                 </div>
                 
-                <audio controls class="custom-audio">
+                <audio controls class="w-full max-w-lg h-12 rounded-lg drop-shadow-sm">
                     <source src="media/audio.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
@@ -66,14 +90,15 @@
         </section>
     </main>
 
-    <footer id="contact">
-        <hr>
-        <h3>Let's Connect</h3>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
-            <a href="https://github.com/johndoe" target="_blank">GitHub</a>
+    <footer id="contact" class="bg-slate-900 text-white py-16 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-8">Let's Connect</h3>
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="https://www.linkedin.com/in/johndoe" target="_blank" class="border border-white/20 px-6 py-2 rounded-lg hover:bg-orange-500 hover:border-orange-500 transition">LinkedIn</a>
+                <a href="https://github.com/johndoe" target="_blank" class="border border-white/20 px-6 py-2 rounded-lg hover:bg-orange-500 hover:border-orange-500 transition">GitHub</a>
+            </div>
+            <p class="text-slate-500">&copy; 2026 John Doe. Built with passion and Tailwind.</p>
         </div>
-        <p>&copy; 2026 John Doe. Built with passion.</p>
     </footer>
 
 </body>
