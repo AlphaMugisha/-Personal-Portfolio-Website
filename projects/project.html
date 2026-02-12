@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Portfolio | Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-solid {
+            background-color: #0f172a; 
+            border: 2px solid #1e293b;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-solid:hover {
+            border-color: #f0932b;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+        }
+        .expandable-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+        }
+        .card-active .expandable-content {
+            grid-template-rows: 1fr;
+        }
+        #video-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -2;
+            object-fit: cover;
+            filter: brightness(15%);
+            background-color: #020617;
+        }
+        .archive-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-200 font-sans selection:bg-[#f0932b] selection:text-black" onclick="playAudio()">
+
+    <video autoplay muted loop id="video-bg">
+        <source src="vidback.mp4" type="video/mp4">
+    </video>
+
+    <audio id="bg-audio" loop>
+        <source src="audioback.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="bg-[#0f172a] border-b-2 border-[#1e293b] sticky top-0 z-40">
+        <nav class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-[#f0932b] font-black text-2xl tracking-tighter italic uppercase">Student_Dev.Log</div>
+            <div class="flex gap-8 text-xs font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-[#f0932b] transition-colors">Home</a>
+                <a href="projects.html" class="text-[#f0932b]">Projects</a>
+                <a href="contact.html" class="hover:text-[#f0932b] transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-16 pb-24">
+        <div class="mb-12 border-l-4 border-[#f0932b] pl-6">
+            <h1 class="text-5xl font-black text-white uppercase italic tracking-tighter">Technical Archive</h1>
+            <p class="text-slate-400 mt-2 text-lg">Detailed documentation of my engineering milestones.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+            
+            <div class="card-solid p-8 rounded-2xl" id="p1">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-[#f0932b] text-[10px] font-black bg-[#f0932b]/10 px-3 py-1 rounded-full border border-[#f0932b]/20 uppercase">PHP / MySQL</span>
+                        <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Academic</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">School Management System</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">A secure portal for managing academic records and automated grading logic.</p>
+                    
+                    <div class="expandable-content">
+                        <div class="overflow-hidden">
+                            <div class="pt-6 mt-6 border-t border-slate-800 text-sm">
+                                <p class="text-slate-300 italic mb-4">Goal: Minimize manual data entry errors in school administration.</p>
+                                <p class="text-white font-bold text-[10px] uppercase tracking-widest">My Role:</p>
+                                <p class="text-slate-400">Database architecture and dashboard logic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleReadMore('p1', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl" id="p2">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-[#f0932b] text-[10px] font-black bg-[#f0932b]/10 px-3 py-1 rounded-full border border-[#f0932b]/20 uppercase">Tailwind / JS</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">E-Commerce UI Kit</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Responsive component library optimized for modern retail checkouts.</p>
+                    <div class="expandable-content"><div class="overflow-hidden pt-6 mt-6 border-t border-slate-800 text-sm text-slate-400">Custom animations and mobile-first design patterns.</div></div>
+                </div>
+                <button onclick="toggleReadMore('p2', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl" id="p3">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-[#f0932b] text-[10px] font-black bg-[#f0932b]/10 px-3 py-1 rounded-full border border-[#f0932b]/20 uppercase">Python / API</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Weather Alert Bot</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Automated scripts for real-time meteorological data fetching.</p>
+                    <div class="expandable-content"><div class="overflow-hidden pt-6 mt-6 border-t border-slate-800 text-sm text-slate-400">Integrated OpenWeather API with automated email triggers.</div></div>
+                </div>
+                <button onclick="toggleReadMore('p3', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl" id="p4">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Task Sync Hub</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Real-time collaborative task manager for student teams.</p>
+                    <div class="expandable-content"><div class="overflow-hidden pt-6 mt-6 border-t border-slate-800 text-sm text-slate-400">Firebase real-time DB integration.</div></div>
+                </div>
+                <button onclick="toggleReadMore('p4', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl" id="p5">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-3">CLI Encryptor</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">A C++ based utility for AES file encryption.</p>
+                </div>
+                <button onclick="toggleReadMore('p5', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl" id="p6">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Finance Tracker</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">SQL-heavy application for personal expense analytics.</p>
+                </div>
+                <button onclick="toggleReadMore('p6', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase tracking-widest text-left hover:text-white transition-colors">+ Read More</button>
+            </div>
+
+            <div class="card-solid p-8 rounded-2xl archive-hidden archive-item" id="a1">
+                <h3 class="text-2xl font-bold text-white mb-3">Legacy Tool A</h3>
+                <p class="text-sm text-slate-400">Archived Python script (2024).</p>
+                <button onclick="toggleReadMore('a1', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase">+ Read More</button>
+            </div>
+            <div class="card-solid p-8 rounded-2xl archive-hidden archive-item" id="a2">
+                <h3 class="text-2xl font-bold text-white mb-3">Legacy Tool B</h3>
+                <p class="text-sm text-slate-400">Archived JS Animation test.</p>
+                <button onclick="toggleReadMore('a2', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase">+ Read More</button>
+            </div>
+            <div class="card-solid p-8 rounded-2xl archive-hidden archive-item" id="a3">
+                <h3 class="text-2xl font-bold text-white mb-3">Legacy Tool C</h3>
+                <p class="text-sm text-slate-400">Early SQL Database schema.</p>
+                <button onclick="toggleReadMore('a3', this)" class="mt-6 text-[#f0932b] text-[11px] font-black uppercase">+ Read More</button>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <button id="archive-btn" onclick="toggleArchive()" class="bg-transparent border-2 border-[#f0932b] text-[#f0932b] px-14 py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:bg-[#f0932b] hover:text-black">
+                Unlock Project Archive
+            </button>
+        </div>
+    </main>
+
+    <div onclick="toggleMute(event)" class="fixed bottom-10 right-10 z-50 bg-[#f0932b] w-14 h-14 rounded-full flex items-center justify-center cursor-pointer shadow-2xl hover:scale-110 transition-transform">
+        <span id="mute-icon" class="text-2xl">🔊</span>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        let audioStarted = false;
+
+        function playAudio() {
+            if (!audioStarted) {
+                audio.play().then(() => { audioStarted = true; }).catch(() => {});
+            }
+        }
+        window.addEventListener('mousemove', playAudio, { once: true });
+        window.addEventListener('mousedown', playAudio, { once: true });
+
+        function toggleMute(e) {
+            e.stopPropagation();
+            audio.muted = !audio.muted;
+            document.getElementById('mute-icon').innerText = audio.muted ? "🔇" : "🔊";
+        }
+        function toggleReadMore(cardId, btn) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('card-active');
+            btn.innerText = card.classList.contains('card-active') ? "- Read Less" : "+ Read More";
+        }
+        function toggleArchive() {
+            const archiveItems = document.querySelectorAll('.archive-item');
+            const btn = document.getElementById('archive-btn');
+
+            const isHidden = archiveItems[0].classList.contains('archive-hidden');
+
+            archiveItems.forEach(item => {
+                if (isHidden) {
+                    item.classList.remove('archive-hidden');
+                    item.style.display = "flex"; 
+                } else {
+                    item.classList.add('archive-hidden');
+                }
+            });
+
+            btn.innerText = isHidden ? "Hide Project Archive" : "Unlock Project Archive";
+        }
+    </script>
+</body>
+</html>
