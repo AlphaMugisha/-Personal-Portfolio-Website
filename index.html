@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div id="header-placeholder"></div>
+    <div id="header-link"></div>
 
     <section id="home" class="hero">
         <video autoplay muted loop id="hero-video">
@@ -64,7 +64,31 @@
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <div id="footer-link"></div>
 
+    <script>
+        async function loadLayout() {
+            try {
+                // Fetch and Inject Header
+                const headerResponse = await fetch('header.html');
+                if (headerResponse.ok) {
+                    const headerData = await headerResponse.text();
+                    document.getElementById('header-link').innerHTML = headerData;
+                }
+
+                // Fetch and Inject Footer
+                const footerResponse = await fetch('footer.html');
+                if (footerResponse.ok) {
+                    const footerData = await footerResponse.text();
+                    document.getElementById('footer-link').innerHTML = footerData;
+                }
+            } catch (error) {
+                console.error('Error loading layout components:', error);
+            }
+        }
+
+        // Initialize loading
+        window.addEventListener('DOMContentLoaded', loadLayout);
+    </script>
 </body>
 </html>
