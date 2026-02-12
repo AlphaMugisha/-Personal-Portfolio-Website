@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get In Touch | Creative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animation for the floating blobs */
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 50px); }
+            100% { transform: translate(0, 0); }
+        }
+        .animate-float { animation: float 15s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col overflow-x-hidden">
+
+    <div class="fixed inset-0 -z-20 w-full h-full overflow-hidden">
+        <video autoplay muted loop playsinline class="min-w-full min-h-full object-cover opacity-40">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-typing-on-a-laptop-keyboard-in-a-dark-room-41804-large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="fixed top-[-10%] left-[-10%] w-[400px] h-[400px] bg-indigo-600/30 blur-[100px] rounded-full -z-10 animate-float"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[350px] h-[350px] bg-pink-600/20 blur-[100px] rounded-full -z-10 animate-float" style="animation-delay: -5s;"></div>
+
+    <nav class="flex justify-center gap-6 p-8 relative z-10">
+        <a href="#" class="px-4 py-2 rounded-full hover:bg-white/10 transition-all text-slate-400 hover:text-white">Home</a>
+        <a href="#" class="px-4 py-2 rounded-full hover:bg-white/10 transition-all text-slate-400 hover:text-white">Projects</a>
+        <a href="#" class="px-4 py-2 rounded-full bg-white/10 text-white shadow-lg border border-white/20">Contact</a>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2rem] shadow-2xl relative z-10">
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-orange-300">
+                Let's build something.
+            </h1>
+            <p class="text-slate-400 mb-10">Have a question or a project in mind? Drop me a message below.</p>
+
+            <div class="grid md:grid-cols-5 gap-12">
+                <div class="md:col-span-2 space-y-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Contact Details</h3>
+                        <p class="flex items-center gap-3 text-slate-300"><span>📧</span> myemail@example.com</p>
+                        <p class="flex items-center gap-3 text-slate-300 mt-2"><span>📱</span> +250 7xx xxx xxx</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Socials</h3>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="text-indigo-400 hover:text-orange-400 transition-colors">LinkedIn ↗</a>
+                            <a href="#" class="text-indigo-400 hover:text-orange-400 transition-colors">GitHub ↗</a>
+                            <a href="#" class="text-indigo-400 hover:text-orange-400 transition-colors">Twitter ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="md:col-span-3 space-y-5">
+                    <div>
+                        <label class="text-orange-400">Name</label>
+                        <input type="text" placeholder="John Doe" 
+                            class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all">
+                    </div>
+
+                    <div>
+                        <label class="text-orange-400">Email</label>
+                        <input type="email" placeholder="john@example.com" 
+                            class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all">
+                    </div>
+
+                    <div>
+                        <label class="text-orange-400 ">Message</label>
+                        <textarea rows="4" placeholder="Tell me about your project..." 
+                            class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-orange-600 hover:to-orange-800 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-indigo-500/20">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center p-8 text-slate-500 text-sm">
+        &copy; 2026 Crafted with ✨ by [Your Name]
+    </footer>
+
+</body>
+</html>
