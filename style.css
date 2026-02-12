@@ -224,3 +224,26 @@ footer {
     header { padding: 15px 5%; }
     nav a { display: none; } /* Could add a hamburger menu here */
 }
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}

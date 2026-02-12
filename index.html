@@ -1,87 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe | Web Developer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header>
-        <div class="logo">JD.</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact" class="nav-cta">Contact</a>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
+<section id="home" class="hero">
         <video autoplay muted loop id="hero-video">
             <source src="media/vid.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
         </video>
+
+        <audio id="bg-audio" loop>
+            <source src="media/audio.mp3" type="audio/mp3">
+        </audio>
+
         <div class="hero-overlay"></div>
+        
         <div class="hero-content">
             <h1>John Doe</h1>
             <h3>Freelance Web Developer</h3>
             <p>Crafting high-performance, responsive websites for the modern web.</p>
-            <a href="#portfolio" class="btn">View My Work</a>
+            
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn">View My Work</a>
+                <button id="audio-toggle" class="btn-secondary">
+                    <span id="audio-icon">🔇</span> Listen
+                </button>
+            </div>
         </div>
     </section>
 
-    <main class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>
-                I am a freelance web developer specializing in HTML, CSS, JavaScript,
-                and modern responsive websites. I turn complex problems into elegant designs.
-            </p>
-        </section>
+    <script>
+        const bgAudio = document.getElementById('bg-audio');
+        const audioToggle = document.getElementById('audio-toggle');
+        const audioIcon = document.getElementById('audio-icon');
 
-        <section id="skills" class="section">
-            <h2>My Skills</h2>
-            <div class="skill-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">React</span>
-                <span class="tag">PHP & MySQL</span>
-            </div>
-        </section>
-
-        <section id="portfolio" class="section">
-            <div class="audio-container">
-                <div class="audio-info">
-                    <div class="pulse-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                    </div>
-                    <div>
-                        <h3>Hear My Story</h3>
-                        <p>Click play to hear a quick intro about my workflow.</p>
-                    </div>
-                </div>
-                
-                <audio controls class="custom-audio">
-                    <source src="media/audio.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact">
-        <hr>
-        <h3>Let's Connect</h3>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
-            <a href="https://github.com/johndoe" target="_blank">GitHub</a>
-        </div>
-        <p>&copy; 2026 John Doe. Built with passion.</p>
-    </footer>
-
-</body>
-</html>
+        audioToggle.addEventListener('click', () => {
+            if (bgAudio.paused) {
+                bgAudio.play();
+                audioIcon.innerText = "🔊";
+                audioToggle.style.background = "var(--accent)";
+            } else {
+                bgAudio.pause();
+                audioIcon.innerText = "🔇";
+                audioToggle.style.background = "rgba(255,255,255,0.2)";
+            }
+        });
+    </script>
